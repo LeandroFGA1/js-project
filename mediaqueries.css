@@ -1,0 +1,24 @@
+/* iPads, Tablets: 481px - 768px */
+@media (min-width: 481px) {
+    /* Estilos para iPads y tablets */
+    .dolar-info .dolar-item:nth-last-child(2){
+        display: block;
+    }
+}
+
+/* Small screens, laptops: 769px - 1024px */
+@media (min-width: 769px) {
+    .dolar-info .dolar-item:last-child{
+    display: block;}
+    /* Estilos para pantallas pequeñas y laptops */
+}
+
+/* Desktops, large screens: 1025px - 1200px */
+@media (min-width: 1025px) {
+    /* Estilos para pantallas de escritorio y pantallas grandes */
+}
+
+/* Extra large screens, TV: 1201px y más */
+@media (min-width: 1201px) {
+    /* Estilos para pantallas extra grandes y televisores */
+}

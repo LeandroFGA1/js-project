@@ -1,0 +1,46 @@
+/* first mobile*/
+
+body{
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.dolar-container{
+    background-color: red;
+    width: 100%;
+    height: 50px;
+}
+.dolar-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.dolar-item{
+    text-align: center;
+    font-size: 14px;
+    height: 100%;
+    transform:translateX(0); /* Inicialmente sin ancho */
+    transition: transform 0.5s;
+    cursor: pointer;
+
+}
+
+.dolar-item:hover {
+    transform: scale(1.2);
+}
+
+
+
+.dolar-item > h2{
+    padding: 0;
+    margin: 2px 0px 0px 0px;
+}
+
+.dolar-info .dolar-item:last-child,
+.dolar-info .dolar-item:nth-last-child(2){
+    display: none;
+}
