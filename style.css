@@ -60,7 +60,7 @@ body{
     z-index: 100;
     display: flex;
     align-items: center;
-    justify-content:space-between; /* To ensure the navbar is above other content */
+    justify-content:space-between;
 }
 .toggle-menu{
     display: none;
@@ -68,22 +68,60 @@ body{
 .navbar-list{
     position:absolute;
     display: none;
-    background-color: rebeccapurple;
-    margin-top: 0px;
     flex-direction: column;
     gap:20px;
-    padding: 20px;
     width: 100%;
+    padding: 0px 20px 0px 20px;
     left: 0;
     right: 0;
     align-items: center;
     justify-content: center;
+    background-color: rebeccapurple;
+    margin-top: -2px;
+    list-style: none;
+}
+.navbar-list >li >a{
+    text-decoration: none;
 }
 
 .toggle-menu:checked ~ .navbar-list {
     display: flex;
 }
 
+.img-logo{
+    width: 40px;
+    height: 40px;
+    align-self: center;
+    justify-self: center;
+}
+.img-logo-container{
+    display: flex;
+    gap:10px;
+    align-self: center;
+    justify-content: center;
+}
+
+/* cart section*/
+.cart-dropdown{
+    display: none;
+    position: absolute;
+    top: 100%; /* Posición debajo de cart-container */
+    right: 0; /* Posición a la derecha */
+    width: 200px; /* Ancho del carrito */
+    height: 90vh;
+    background-color: white;
+}
+#toggle-cart:checked ~ .cart-dropdown {
+    display: block;
+}
+#toggle-cart{
+    display: none;
+}
+.img-cart{
+    cursor: pointer;
+    align-self: center;
+    justify-self: center;
+}
 
 /* Styling for the hero section */
 .hero {
@@ -91,6 +129,5 @@ body{
     background-color: brown;
 }
 .navbar-img--menu{
-    margin-top: 00px;
     height: 50px;
 }

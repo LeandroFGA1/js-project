@@ -10,6 +10,21 @@
 @media (min-width: 769px) {
     .dolar-info .dolar-item:last-child{
     display: block;}
+    .navbar-list {
+        margin: 0px;
+        display: flex;
+        flex-direction: row;
+        position: static;
+        background-color: transparent;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+    .navbar-img--menu{
+        display: none;
+        
+    }
+    
     /* Estilos para pantallas pequeñas y laptops */
 }
 
