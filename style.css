@@ -121,6 +121,7 @@ body{
     cursor: pointer;
     align-self: center;
     justify-self: center;
+    padding: 2px;
 }
 
 /* Styling for the hero section */
