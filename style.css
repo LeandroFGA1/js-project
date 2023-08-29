@@ -109,7 +109,8 @@ body{
     right: 0; /* Posición a la derecha */
     width: 200px; /* Ancho del carrito */
     height: 90vh;
-    background-color: white;
+    background-color: rgb(167, 73, 73);
+    
 }
 #toggle-cart:checked ~ .cart-dropdown {
     display: block;
@@ -123,7 +124,26 @@ body{
     justify-self: center;
     padding: 2px;
 }
-
+.img-trash{
+    width: 20px;
+    height: 20px;
+}
+.favorite-items{
+    background-color: aquamarine;
+    width: 95%;
+    height: 90%;
+    margin: -10px 0px 0px 5px;
+}
+.item-cart{
+    background-color: chocolate;
+    display: flex;
+    justify-content: space-around;
+}
+.cart-dropdown button{
+    background-color: antiquewhite;
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    align-self: flex-end; /* Coloca el botón al final del contenedor */
+}
 /* Styling for the hero section */
 .hero {
     height: 100vh;
