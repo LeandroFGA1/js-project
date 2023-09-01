@@ -83,6 +83,31 @@ body{
 .navbar-list >li >a{
     text-decoration: none;
 }
+.navbar-list > li > a::after {
+    content: "";
+    display: block;
+    width: 1px; /* Inicialmente la línea no tiene ancho */
+    height: 2px;
+    background-color: yellow;
+    transition: width 0.5s ease;
+    transition-delay: 0.05s; /* Transición para animar el ancho */
+    transform: scaleX(0); /* Inicialmente la línea tiene escala cero en el eje X */
+}
+
+/* Cambia el ancho y la escala cuando el cursor pasa sobre el enlace */
+.navbar-list > li > a:hover::after {
+    width: 100%; /* Aumenta el ancho gradualmente al 100% */
+    transform: scaleX(1); /* Escala del pseudo-elemento a 1 */
+}
+
+
+
+
+
+
+
+
+
 
 .toggle-menu:checked ~ .navbar-list {
     display: flex;
@@ -143,12 +168,90 @@ body{
     background-color: antiquewhite;
     width: 100%; /* Ocupa todo el ancho del contenedor */
     align-self: flex-end; /* Coloca el botón al final del contenedor */
+}.navbar-img--menu{
+    height: 50px;
 }
 /* Styling for the hero section */
 .hero {
     height: 100vh;
-    background-color: brown;
+    position: relative;
 }
-.navbar-img--menu{
-    height: 50px;
+/* Estilos para la sección de héroe */
+.hero-container {
+    position: relative;
+    width: 100%;
+    background-image: url('./assets/imgs/img-hero-fondo.png');
+    background-size: cover;
+    background-position: center;
+    margin-top: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 85vh;
+}
+.img-hero-center{
+    width: 65vh;
+    border-radius: 10px;
+}
+
+/* Pseudo-elemento para aplicar el efecto de desenfoque */
+
+
+
+
+
+
+
+/* contacto */
+/* Estilos para la sección de contacto */
+.contact {
+    background-color: #f4f4f4;
+    padding: 50px 0;
+}
+
+.contact-container {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.contact-container p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }

@@ -48,10 +48,31 @@
         </div>
     </header>
     <main>
-        <section class="hero" id="hero"></section>
+        <section class="hero" id="hero">
+            <div class="hero-container">
+                <h1>¡Batacazo de Colón!</h1>
+                <img src="./assets/imgs/imagen-hero-centro.png" alt="Imagen del Héroe" class="img-hero-center">
+                <p>El explorador de la Corona llega a las Indias contra todo pronóstico por el oeste.</p>
+            </div>
+        </section>
         <section class="news" id="news"></section>
         <section class="about-us" id="about-us"></section>
-        <section class="contact" id="contact"></section>
+        <section class="contact" id="contact">
+            <div class="contact-container">
+                <h2>Contacto</h2>
+                <p>¿Tienes alguna pregunta o comentario? ¡Contáctanos!</p>
+                <form class="contact-form">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Mensaje:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </section>
+        
     </main>
     <footer></footer> 
     <script src="APIs.js"></script>

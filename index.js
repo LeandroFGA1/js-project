@@ -26,3 +26,6 @@ const init = () =>{
     document.addEventListener("DOMContentLoaded",wea)
 }
 init();
+
+
+//https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=es&appid=${key}//
