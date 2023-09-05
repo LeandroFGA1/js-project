@@ -35,7 +35,7 @@ const getAPIDolar = async() =>{
 const renderDolars = (dolars) =>{
     const container = document.querySelector(".dolar-price-container");
     container.innerHTML = dolars.slice(0,4).map((parte,contador) => `
-    <div class="price-box ${contador === 0 ? '' : 'wea'}">
+    <div class="price-box ${contador === 0 ? '' : 'wea'} ${contador === 3 ? 'box-laster' : ''}">
         <h2>${parte.nombre}</h2>
         <span>Compra: ${parte.compra}</span>
         <span>Venta: ${parte.venta}</span>
