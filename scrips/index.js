@@ -1,14 +1,7 @@
-const wea = (e) => {
-    e.preventDefault();
-    let globalData; // Variable global
-    fetch("https://dolarapi.com/v1/dolares")
-        .then(response => response.json())
-        .then(data => {
-            globalData = data; // ALmacenar los datos
-            console.log(globalData);
+const botonMenu = document.querySelector(".quit-menu");
+const toggleMenuCheckbox = document.getElementById("toggle-menu");
+const toggleMenu = document.querySelector(".menu-container");
 
-        });
-}
 
 const APIDolar = async() =>{
     const dolars = await getAPIDolar();
@@ -43,10 +36,21 @@ const renderDolars = (dolars) =>{
     `).join("");
 }
 
+const quitMenu =() =>{
+    botonMenu.parentNode.style.display = "none";
+    toggleMenuCheckbox.checked = false;
+}
+const addMenu =() =>{
+    toggleMenu.style.display="block";
+}
+
+
 
 
 
 const init = () =>{
     document.addEventListener("DOMContentLoaded",APIDolar);
+    botonMenu.addEventListener("click",quitMenu);
+    toggleMenuCheckbox.addEventListener("change",addMenu)
 }
 init();

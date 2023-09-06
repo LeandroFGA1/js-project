@@ -21,30 +21,63 @@
 
 .img-logo{
     margin-top: 70px;
+    padding-left: 70px;
 }
-/* dolar-price-container */
+.left-navbar-container{
+    display: flex;
+    gap:20px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.img-toggle-menu{
+    margin-left: 10px;
+    width: 60px;
+    cursor: pointer;
+    transition: all  0.5s;
+    transform: rotate(0);
+}
+#toggle-menu{
+    display: none;
+}
+#toggle-menu:checked ~ label >.img-toggle-menu{
+    transform: rotate(180deg);
+}
+
+.menu-container{
+    position: absolute;
+    width: 100vw;
+    height: 99vh;
+    background-color: blue;
+    z-index: 10;
+    display: none;
+}
+.quit-menu-img{
+    width: 70px;
+    height: 70px;
+}
 /* dolar-price-container */
 .dolar-price-container {
     height: 90%;
     width: 200px;
     background-color: red;
     text-align: center;
-    margin-left: 10px;
     border-radius: 20px;
     cursor: pointer;
-    position: relative;
     justify-content: center;
     align-items: center;
 }
 .price-box{
     padding-top: 5px;
 }
+.dolar-price-container:hover{
+    margin-top: 176px;
+}
 
 /* Utilizamos ::before para crear un elemento pseudo antes de .wea */
 .dolar-price-container::before {
     content: '';
     display: block;
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -69,26 +102,8 @@
 }
 .dolar-price-container:hover > .wea {
     display: block;
-    background-color: red;
+    background-color: rgb(255, 0, 0);
 }
-.dolar-price-container:not(:hover) > .wea {
-    animation-duration: 1s;
-    animation-name: slideOut;
-}
-
-@keyframes slideOut {
-    from {
-        display: block;
-        background-color: red;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(-10px);
-        display: none;
-    }
-}
-
 @keyframes slideIn {
     from {
         opacity: 0;
@@ -111,8 +126,8 @@
 
 /*  cart */
 .img-menu{
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     margin-right: 20px;
     cursor: pointer;
     transition: all  0.5s;
@@ -126,25 +141,27 @@
 }
 
 .cart-container{
-    margin-top: 67px;
-    position: absolute;
-    right: 0;
-    height: 100px;
-    background-color: transparent;
-    display: block;
+    margin-top: 70px;
+    left: 70%;
+    position:fixed;
+    height: 500px;
+    width: 100%;
+    display: none;
     overflow: hidden;
+    background-color: rgba(0, 0, 255, 0.082);
 }
 .cart-items{
-    height: 90%;
+    height: 100%;
+    width: 100%;
     background-color:burlywood;
-    animation-duration: 1s;
+    animation-duration: 0.8s;
     animation-name: cartIn;
     display: none;
 }
-#toggle-cart:checked ~ .cart-container >.cart-items{
+#toggle-cart:checked ~ .cart-container >.cart-items,#toggle-cart:checked ~ .cart-container{
     display: block;
 }
-#toggle-cart:not(:checked) ~ .cart-container>.cart-items {
+#toggle-cart:not(:checked) ~ .cart-container>.cart-items,#toggle-cart:not(:checked) ~ .cart-container {
     animation-duration: 1s;
     animation-name: cartOut;
 }
