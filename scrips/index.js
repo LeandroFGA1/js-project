@@ -2,6 +2,7 @@ const botonMenu = document.querySelector(".quit-menu");
 const toggleMenuCheckbox = document.getElementById("toggle-menu");
 const toggleMenu = document.querySelector(".menu-container");
 const main = document.querySelector("main");
+const logo = document.getElementById("logo");
 
 
 // esta funcion tuve que desactivarla ya el numero de llamados colapta llega al limite muy rapido, creare un data.json para emular larlo un poco.
@@ -19,8 +20,9 @@ const addNews =()=>{
 const renderSectionNews = (sections) =>{
     for (const sectionName in sections){
         main.innerHTML += `
-        <section id="${sectionName}" class="sections">
+        <section id="${sectionName}---" class="sections">
             <h2>${sectionName}</h2>
+            <div class= "news-container" id="${sectionName}"></div>
         </section>`;
         console.log(sectionName);
         const DOMCurrentsecion = document.getElementById(sectionName);
@@ -101,6 +103,15 @@ const addMenu =() =>{
 }
 
 
+const prueba = () =>{
+    const wea = window.scrollY;
+    if (wea >=150){
+        logo.classList.add("img-logo-scroll");
+    }else{
+        logo.classList.remove("img-logo-scroll")
+    }
+}
+
 
 
 
@@ -112,5 +123,17 @@ const init = () =>{
     });
     botonMenu.addEventListener("click",quitMenu);
     toggleMenuCheckbox.addEventListener("change",addMenu);
+    window.addEventListener("scroll",prueba);
 }
+
+
+// Agrega un evento de escucha al desplazamiento
+
+
+
+
+
+
+
+
 init();
