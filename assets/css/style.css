@@ -212,7 +212,7 @@
 
 main{
     margin: 70px 10px 10px 10px;
-    height: 300vh;
+    height: 100%;
     background-color:cornsilk;
     border-radius: 20px;
 }
@@ -300,4 +300,131 @@ main{
     gap: 20px;
     padding: 20px;
     box-sizing: border-box;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.section-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.section-content p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+}
+
+/* Estilos para el formulario de suscripción */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.contact-form label {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.contact-form input[type="email"] {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.contact-form button[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-contact,
+.footer-social {
+    flex: 1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer-contact h3,
+.footer-social h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.footer-contact p,
+.footer-social ul {
+    font-size: 14px;
+}
+
+.footer-social ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-social ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.footer-bottom {
+    background-color: #222;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/* Estilos para enlaces de redes sociales */
+.footer-social ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* Estilos adicionales para la sección de Subscribe */
+#subscribe {
+    background-color: #f5f5f5;
 }
