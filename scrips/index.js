@@ -3,7 +3,7 @@ const toggleMenuCheckbox = document.getElementById("toggle-menu");
 const toggleMenu = document.querySelector(".menu-container");
 const main = document.querySelector("main");
 const logo = document.getElementById("logo");
-
+const cart = document.querySelector(".cart-items-list");
 
 // esta funcion tuve que desactivarla ya el numero de llamados colapta llega al limite muy rapido, creare un data.json para emular larlo un poco.
 //const callNews = async()=>{
@@ -24,9 +24,9 @@ const renderSectionNews = (sections) =>{
             <h2>${sectionName}</h2>
             <div class= "news-container" id="${sectionName}"></div>
         </section>`;
-        console.log(sectionName);
         const DOMCurrentsecion = document.getElementById(sectionName);
         const currentSection = sections[sectionName];
+        renderCart(sectionName);
         for (const currentNew in currentSection){
             const {title, author, paragraph} = currentSection[currentNew];
             DOMCurrentsecion.innerHTML += `
@@ -40,12 +40,19 @@ const renderSectionNews = (sections) =>{
             </a>
             
             `;
-            console.log(currentSection[currentNew]);
             
         }
     }
 }
-
+const renderCart=(section)=>{
+    console.log("hola");
+    cart.innerHTML +=`
+    <li>
+        <a href="#${section}">${section}</a>
+    </li>
+    
+    `;
+}
 
 const sectionaliserNews = (info) =>{
     const sectionNews ={};
@@ -57,13 +64,11 @@ const sectionaliserNews = (info) =>{
         sectionNews[type].push(noticia);
         }
     });
-    console.log(sectionNews);
     return sectionNews;
 }
 
 const APIDolar = async() =>{
     const dolars = await getAPIDolar();
-    console.log(dolars);
     
     renderDolars(dolars);
     
