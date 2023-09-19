@@ -1,3 +1,17 @@
+:root {
+    /* Color principal: gris claro */
+    --main-color: #f1f1f1;
+    --main-color-navbar: #f0f0f0;
+    /* Color secundario: azul oscuro */
+    --secondary-color: #006400;
+    /* Color de acento: amarillo brillante */
+    --accent-color: #FFC300;
+    /* Color del texto: gris oscuro */
+    --text-color: #4B4B4B;
+    /* Color del texto secundario: gris medio */
+    --secondary-text-color: #9C9C9C;
+}
+
 *{
     margin: 0px;
     padding: 0px;
@@ -10,9 +24,10 @@
 .navbar-container{
     width: 100%;
     height: 70px;
-    background-color: aqua;
+    background-color: var(--main-color-navbar);
     position: fixed;
-    z-index: 2;
+    z-index: 12;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.075);
 }
 .navbar{
     display: flex;
@@ -30,7 +45,8 @@
 .img-logo-scroll{
     margin-top: 20px;
     transform: scale(60%);
-    transition: transform 1s ease, margin-top 1s ease;
+    margin-bottom: 15px;
+    transition: transform 1s ease, margin-top 1s ease, margin-bottom 1s ease;
 }
 
 .left-navbar-container{
@@ -68,53 +84,42 @@
 }
 /* dolar-price-container */
 .dolar-price-container {
-    height: 90%;
-    width: 200px;
-    background-color: red;
+    width: 220px;
+    height: 50px;
+    background-color: var(--accent-color);
     text-align: center;
-    border-radius: 20px;
+    border-radius: 10px;
     cursor: pointer;
     justify-content: center;
     align-items: center;
 }
+.dolar-price-container:hover{
+    height: 60px;
+    margin-top: 10px;
+}
+
+
 .price-box{
     padding-top: 5px;
-}
-.dolar-price-container:hover{
-    margin-top: 176px;
-}
-
-/* Utilizamos ::before para crear un elemento pseudo antes de .wea */
-.dolar-price-container::before {
-    content: '';
-    display: block;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: red;
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: transform 0.5s ease-in-out;
-    z-index: -1;
-}
-
-.dolar-price-container:hover::before {
-    transform: scaleY(1);
 }
 
 .wea {
     display: none;
     animation-duration: 0.5s;
-    animation-name: slideIn;
+    animation-name: dolarIn;
     position: relative;
     z-index: 1;
 }
 .dolar-price-container:hover > .wea {
     display: block;
-    background-color: rgb(255, 0, 0);
+    background-color: var(--accent-color);
 }
-@keyframes slideIn {
+.dolar-price-container:not(:hover)>.wea{
+    animation-duration: 0.5s;
+    animation-name: dolarOut;
+}
+
+@keyframes dolarIn {
     from {
         opacity: 0;
         transform: translateY(-10px);
@@ -122,6 +127,18 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes dolarOut{
+    from{
+        background-color: var(--accent-color);
+        display: block;
+        opacity: 1;
+        
+    }
+    to{
+        opacity: 0;
     }
 }
 
@@ -158,21 +175,21 @@
     width: 100%;
     display: none;
     overflow: hidden;
-    background-color: rgba(0, 0, 255, 0.082);
 }
 .cart-items{
     height: 100%;
     width: 100%;
-    background-color:burlywood;
+    background-color:var(--accent-color);
     animation-duration: 0.8s;
     animation-name: cartIn;
     display: none;
+    border-radius: 30px;
 }
 #toggle-cart:checked ~ .cart-container >.cart-items,#toggle-cart:checked ~ .cart-container{
     display: block;
 }
 #toggle-cart:not(:checked) ~ .cart-container>.cart-items,#toggle-cart:not(:checked) ~ .cart-container {
-    animation-duration: 1s;
+    animation-duration: 2s;
     animation-name: cartOut;
 }
 
@@ -213,7 +230,7 @@
 main{
     margin: 70px 10px 10px 10px;
     height: 100%;
-    background-color:cornsilk;
+    background-color: var(--main-color);
     border-radius: 20px;
 }
 .hero{
@@ -225,7 +242,6 @@ main{
 .central-new{
     position: relative;
     text-align: center;
-    background-color: brown;
     border-radius: 20px;
 }
 .central-new-img{
@@ -252,7 +268,6 @@ main{
 .article-container{
     width: 300px;
     height: 320px;
-    background-color: cadetblue;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -260,13 +275,19 @@ main{
     color: black;
     transition: color 1s ease;
 }
+.article-container h2{
+    color: var(--accent-color);
+}
+.article-container p{
+    width: 200px;
+}
+
 .article-container:hover{
-    color: purple;
+    color:var(--accent-color);
 }
 .article{
-    background-color: brown;
-    width: 95%;
-    height: 99%;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -281,6 +302,7 @@ main{
 }
 .article-header{
     font-size: 20px;
+    color: var(--accent-color);
 }
 .article-paragraph{
     font-size: 18px;
@@ -291,8 +313,14 @@ main{
     margin-top: auto;
 
 }
+
 .sections{
-    
+    height: auto;
+}
+.sections >h2{
+    border-top: var(--secondary-color) solid 20px;
+    border-top-style:ridge;
+    border-width: 5px;
 }
 .news-container{
     display: grid;

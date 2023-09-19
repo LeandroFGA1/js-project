@@ -28,12 +28,12 @@ const renderSectionNews = (sections) =>{
         const DOMCurrentsecion = document.getElementById(sectionName);
         const currentSection = sections[sectionName];
         for (const currentNew in currentSection){
-            const {title, author, image, paragraph} = currentSection[currentNew];
+            const {title, author, paragraph} = currentSection[currentNew];
             DOMCurrentsecion.innerHTML += `
             <a class="article-container" href="#">
                 <article class="article">
                     <img src="./assets/imgs/${title}.jpg" alt="" class="article-img">
-                    <h2 class="article-header">${title}</h2>
+                    <h3 class="article-header">${title}</h3>
                     <p class="article-paragraph">${paragraph.slice(0,70)+"..."}</p>
                     <span class="article-author">${author}</span>
                 </article>
@@ -103,7 +103,7 @@ const addMenu =() =>{
 }
 
 
-const prueba = () =>{
+const moveLogo = () =>{
     const wea = window.scrollY;
     if (wea >=150){
         logo.classList.add("img-logo-scroll");
@@ -123,11 +123,10 @@ const init = () =>{
     });
     botonMenu.addEventListener("click",quitMenu);
     toggleMenuCheckbox.addEventListener("change",addMenu);
-    window.addEventListener("scroll",prueba);
+    window.addEventListener("scroll",moveLogo);
 }
 
 
-// Agrega un evento de escucha al desplazamiento
 
 
 

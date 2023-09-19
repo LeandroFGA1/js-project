@@ -158,7 +158,7 @@ const data =[
         author: "Alexei Petrov",
         paragraph: "On April 26, 1986, the Chernobyl nuclear power plant in Ukraine experienced a catastrophic meltdown, leading to one of the worst nuclear disasters in history.",
         image: "", // Agrega la URL de la imagen correspondiente
-        type: "Science"
+        type: "Technology"
     },
     {
         title: "Founding of Microsoft",
