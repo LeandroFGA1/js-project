@@ -6,6 +6,7 @@ const logo = document.getElementById("logo");
 const cart = document.querySelector(".cart-items-list");
 const MENU = document.querySelector(".menu-items-list");
 let MENU_ITEMS;
+let IMGS_DELETE;
 
 // esta funcion tuve que desactivarla ya el numero de llamados colapta llega al limite muy rapido, creare un data.json para emular larlo un poco.
 //const callNews = async()=>{
@@ -75,6 +76,9 @@ const createListenerMenu = () => {
         item.addEventListener("click", quitMenu); // Agregar event listener a cada elemento
     });
 }
+
+
+
 const createListerCart = ()=>{
     // Obtén una lista de todos los elementos <input> con name que comienza con "add-cart-img-"
     const checkboxes = document.querySelectorAll('input[name^="add-cart-img-"]');
@@ -82,34 +86,22 @@ const createListerCart = ()=>{
 // Agrega un evento de cambio a cada elemento
     checkboxes.forEach((checkbox) => {
         checkbox.addEventListener("change", (event) => {
-        const sectionName = event.target.name.replace("add-cart-img-", "");
-        const label = document.querySelector(`label[for="${event.target.id}"]`);
-        const addCartImg = label.querySelector(`.add-cart-img-${sectionName}`);
-    // Tu lógica aquí para manejar el cambio del checkbox
         if (event.target.checked) {
-            
-            
-            
-            
+
             listenerThisLi(event.target, true);
             
-      // El checkbox ha sido marcado
-      // Agrega aquí lo que deseas hacer cuando se marque el checkbox
         } else {
             console.log("caca")
             listenerThisLi(event.target,false);
-      // El checkbox ha sido desmarcado
-      // Agrega aquí lo que deseas hacer cuando se desmarque el checkbox
         }
         });
 });
 }
+
 const listenerThisLi = (li,boolean) => {
     const existingLi = cart.querySelector(`li[id="${li.name}-"]`);
     if (boolean ===true){
-        
-        // Verifica si el elemento li ya existe dentro de cart
-        
+
         
         if (existingLi) {
             // El elemento li ya existe, puedes hacer algo con él si lo deseas
@@ -135,7 +127,32 @@ const listenerThisLi = (li,boolean) => {
         }
 
     }
+    isCartEmpty();
+    createListenerDeleteImg();
+};
+const createListenerDeleteImg =()=>{
+    IMGS_DELETE =document.querySelectorAll(".cart-delete");
+    IMGS_DELETE.forEach((img)=>{
+        img.addEventListener("click",()=>{
+            const nameCheckBox = `${img.parentNode.id}`;
+            document.getElementById(nameCheckBox.slice(0, -1)).checked=false;
+            console.log(img.parentNode.id)
+            img.parentNode.remove()
+        })
+    })
 }
+const isCartEmpty=()=> {
+    const cartItems = cart.querySelectorAll('li.cart-item');
+    const imgCart = document.querySelector(".img-menu");
+    
+    // Si no hay ningún elemento li en cart, el carrito está vacío
+    if (cartItems.length === 0) {
+        imgCart.style.backgroundColor = "transparent"; // Fondo transparente si está vacío
+    } else {
+        imgCart.style.backgroundColor = "var(--accent-color)"; // Fondo rojo si no está vacío
+    }
+};
+
 
 
 const renderMenu=(section)=>{
