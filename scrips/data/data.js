@@ -123,7 +123,7 @@ const data =[
         author: "Neil Armstrong",
         paragraph: "On July 20, 1969, I became the first human to set foot on the Moon during NASA's Apollo 11 mission. I said the famous words, 'That's one small step for [a] man, one giant leap for mankind.'",
         image: "", // Agrega la URL de la imagen correspondiente
-        type: "Space Exploration"
+        type: "Space"
     },
     {
         title: "Fall of the Berlin Wall",
@@ -144,7 +144,7 @@ const data =[
         author: "Susan Adams",
         paragraph: "In April 1970, the Apollo 13 mission suffered an oxygen tank explosion in space. Through incredible teamwork, we safely returned to Earth against the odds.",
         image: "", // Agrega la URL de la imagen correspondiente
-        type: "Space Exploration"
+        type: "Space"
     },
     {
         title: "End of Apartheid in South Africa",

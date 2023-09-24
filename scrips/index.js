@@ -4,6 +4,8 @@ const toggleMenu = document.querySelector(".menu-container");
 const main = document.querySelector("main");
 const logo = document.getElementById("logo");
 const cart = document.querySelector(".cart-items-list");
+const MENU = document.querySelector(".menu-items-list");
+let MENU_ITEMS;
 
 // esta funcion tuve que desactivarla ya el numero de llamados colapta llega al limite muy rapido, creare un data.json para emular larlo un poco.
 //const callNews = async()=>{
@@ -12,21 +14,42 @@ const cart = document.querySelector(".cart-items-list");
 //}
 
 const addNews =()=>{
+
     const dataNews = data;
     const sectionalisedNews = sectionaliserNews(dataNews);
     renderSectionNews(sectionalisedNews);
+    
 }
 
 const renderSectionNews = (sections) =>{
     for (const sectionName in sections){
+        const styleCSS = document.createElement("style");
+        let css =`
+        #add-cart-img-${sectionName}{
+            display:none;
+        }
+        #add-cart-img-${sectionName}:checked ~ label >.add-cart-img-${sectionName}{
+            transform: rotate(180deg);
+            background-color: var(--accent-color);
+        }
+        `;
+        styleCSS.innerHTML=css;
+        document.head.appendChild(styleCSS);
         main.innerHTML += `
         <section id="${sectionName}---" class="sections">
-            <h2>${sectionName}</h2>
+            <div class ="header-section">
+                <h2>${sectionName}</h2>
+                <input type="checkbox" name="add-cart-img-${sectionName}" id="add-cart-img-${sectionName}">
+                <label for="add-cart-img-${sectionName}">
+                    <img src="./assets/imgs/boton-agregar.png" class="add-cart-img add-cart-img-${sectionName}" alt="add cart icon">
+                </label>
+            </div>
+            
             <div class= "news-container" id="${sectionName}"></div>
         </section>`;
         const DOMCurrentsecion = document.getElementById(sectionName);
         const currentSection = sections[sectionName];
-        renderCart(sectionName);
+        renderMenu(sectionName);
         for (const currentNew in currentSection){
             const {title, author, paragraph} = currentSection[currentNew];
             DOMCurrentsecion.innerHTML += `
@@ -43,12 +66,82 @@ const renderSectionNews = (sections) =>{
             
         }
     }
+    createListenerMenu();
+    createListerCart();
 }
-const renderCart=(section)=>{
-    console.log("hola");
-    cart.innerHTML +=`
+const createListenerMenu = () => {
+    MENU_ITEMS = document.querySelectorAll(".menu-item--click"); // Obtener todos los elementos
+    MENU_ITEMS.forEach((item) => {
+        item.addEventListener("click", quitMenu); // Agregar event listener a cada elemento
+    });
+}
+const createListerCart = ()=>{
+    // Obtén una lista de todos los elementos <input> con name que comienza con "add-cart-img-"
+    const checkboxes = document.querySelectorAll('input[name^="add-cart-img-"]');
+
+// Agrega un evento de cambio a cada elemento
+    checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener("change", (event) => {
+        const sectionName = event.target.name.replace("add-cart-img-", "");
+        const label = document.querySelector(`label[for="${event.target.id}"]`);
+        const addCartImg = label.querySelector(`.add-cart-img-${sectionName}`);
+    // Tu lógica aquí para manejar el cambio del checkbox
+        if (event.target.checked) {
+            
+            
+            
+            
+            listenerThisLi(event.target, true);
+            
+      // El checkbox ha sido marcado
+      // Agrega aquí lo que deseas hacer cuando se marque el checkbox
+        } else {
+            console.log("caca")
+            listenerThisLi(event.target,false);
+      // El checkbox ha sido desmarcado
+      // Agrega aquí lo que deseas hacer cuando se desmarque el checkbox
+        }
+        });
+});
+}
+const listenerThisLi = (li,boolean) => {
+    const existingLi = cart.querySelector(`li[id="${li.name}-"]`);
+    if (boolean ===true){
+        
+        // Verifica si el elemento li ya existe dentro de cart
+        
+        
+        if (existingLi) {
+            // El elemento li ya existe, puedes hacer algo con él si lo deseas
+            console.log(`El elemento ${li.name} ya existe en el carrito.`);
+        } else {
+            // El elemento li no existe en el carrito, así que lo agregamos
+            console.log(`Agregando el elemento ${li.name} al carrito.`);
+            
+            cart.innerHTML += `
+                <li class="cart-item" id="${li.name}-">
+                    <h4>${li.name.replace('add-cart-img-', '')}</h4>
+                    <img src="./assets/imgs/delete-cart.svg" alt="delete" class="cart-delete" id="img-delete-${li.name}">
+                </li>`;
+            const imgDelete = document.getElementById(`img-delete-${li.name}`);
+            imgDelete.addEventListener("click",()=>{
+                li.checked=false;
+                listenerThisLi(li,false);
+            })
+        }
+    }else{
+        if(existingLi){
+            existingLi.remove()
+        }
+
+    }
+}
+
+
+const renderMenu=(section)=>{
+    MENU.innerHTML +=`
     <li>
-        <a href="#${section}">${section}</a>
+        <a class="menu-item--click" href="#${section}---">${section}</a>
     </li>
     
     `;
@@ -102,6 +195,7 @@ const renderDolars = (dolars) =>{
 const quitMenu =() =>{
     botonMenu.parentNode.style.display = "none";
     toggleMenuCheckbox.checked = false;
+    console.log("ghost");
 }
 const addMenu =() =>{
     toggleMenu.style.display="block";
@@ -109,15 +203,17 @@ const addMenu =() =>{
 
 
 const moveLogo = () =>{
-    const wea = window.scrollY;
-    if (wea >=150){
+    const position = window.scrollY;
+    if (position >=150){
         logo.classList.add("img-logo-scroll");
     }else{
         logo.classList.remove("img-logo-scroll")
     }
 }
 
-
+const prueba = ()=>{
+    console.log("poto")
+}
 
 
 const init = () =>{
