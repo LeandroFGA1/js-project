@@ -261,7 +261,7 @@ const data =[
     {
         "title": "FIFA World Cup Hosted in Brazil",
         "author": "FIFA",
-        "paragraph": "Brazil hosted the FIFA World Cup in 1950, a tournament that featured the famous 'Maracanazo' match, in which Uruguay defeated Brazil in the final.",
+        "paragraph": "Brazil hosted the FIFA World Cup in 1950",
         "image": "",
         "type": "Sports"
     },
