@@ -276,13 +276,6 @@ const init = () =>{
     window.addEventListener("scroll",moveLogo);
     CONTACT.addEventListener("submit",checkerEmail);
 }
-//hola
-
-
-
-
-
-
 
 
 
