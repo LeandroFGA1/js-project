@@ -74,10 +74,26 @@
     position: absolute;
     width: 100vw;
     height: 99vh;
-    background-color: rgb(255, 0, 0);
+    background-color:var(--main-color-navbar);
+    font-size: 30px;
+    text-decoration: none;
     z-index: 10;
     display: none;
 }
+.menu-item--click{
+    color: var(--text-color);
+    text-decoration: none;
+    
+}
+.menu-item--click:visited{
+    color: var(--text-color);
+}
+.menu-item--click:hover{
+    text-decoration:underline;
+    transition: text-decoration 2s ease;
+}
+
+
 .quit-menu-img{
     width: 70px;
     height: 70px;
@@ -93,6 +109,9 @@
     justify-content: center;
     align-items: center;
 }
+
+
+
 .dolar-price-container:hover{
     height: 60px;
     margin-top: 10px;
@@ -536,6 +555,7 @@ footer {
 /* Para pantallas más pequeñas, muestra la imagen pequeña */
 @media (max-width: 950px) {
     #logo {
+        margin-top: 12px;
         content: url('./imgs-mediaqueries/Logo-short.png');
     }
 }
