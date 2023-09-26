@@ -5,6 +5,9 @@ const main = document.querySelector("main");
 const logo = document.getElementById("logo");
 const cart = document.querySelector(".cart-items-list");
 const MENU = document.querySelector(".menu-items-list");
+const CONTACT =document.querySelector(".contact-form");
+const EMAIL =document.getElementById("email");
+const ERROR_EMAIL =document.querySelector(".show-erros-email");
 let MENU_ITEMS;
 let IMGS_DELETE;
 
@@ -137,7 +140,8 @@ const createListenerDeleteImg =()=>{
             const nameCheckBox = `${img.parentNode.id}`;
             document.getElementById(nameCheckBox.slice(0, -1)).checked=false;
             console.log(img.parentNode.id)
-            img.parentNode.remove()
+            img.parentNode.remove();
+            isCartEmpty();
         })
     })
 }
@@ -232,6 +236,34 @@ const prueba = ()=>{
     console.log("poto")
 }
 
+const checkerEmail = (e) => {
+    e.preventDefault();
+    ERROR_EMAIL.innerHTML="";
+    const email = EMAIL.value;
+    if(email.trim() ===""){
+        ERROR_EMAIL.innerHTML +=`<p>No e-mail has been entered</p>`
+        return;
+    }
+    if (!email.includes('@')) {
+        ERROR_EMAIL.innerHTML += `<p>The email must contain "@".</p>`;
+        return;
+    }
+    if ((email.match(/@/g)).length > 1) {
+        ERROR_EMAIL.innerHTML += `<p>The email cannot contain more than one "@" symbol.</p>`;
+        return;
+    }
+    if (!email.endsWith('.com')) {
+        ERROR_EMAIL.innerHTML += `<p>The e-mail must end in ".com". We do not accept any other format.</p>`;
+        return;
+    }
+    const [prev, post] = email.split('@');
+    if (prev.length < 4) {
+        ERROR_EMAIL.innerHTML += `<p>The local part of the email must have at least 4 characters.</p>`;
+        return;
+    }
+    ERROR_EMAIL.innerHTML +=`<p>Check your email inbox to confirm your subscription.</p>`;
+}
+
 
 const init = () =>{
     document.addEventListener("DOMContentLoaded", ()=>{
@@ -242,6 +274,7 @@ const init = () =>{
     botonMenu.addEventListener("click",quitMenu);
     toggleMenuCheckbox.addEventListener("change",addMenu);
     window.addEventListener("scroll",moveLogo);
+    CONTACT.addEventListener("submit",checkerEmail);
 }
 //hola
 
