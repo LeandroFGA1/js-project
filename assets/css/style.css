@@ -263,7 +263,7 @@
     height: 50px;
 }
 .quit-menu:hover{
-    background-color: blueviolet;
+    background-color:var(--accent-color);
 }
 .cart-delete{
     width: 20px;
