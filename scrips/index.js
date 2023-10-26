@@ -74,7 +74,7 @@ const renderSectionNews = (sections) =>{
                 <article class="article">
                     <img src="./assets/imgs/${title}.jpg" alt="" class="article-img">
                     <h3 class="article-header">${title}</h3>
-                    <p class="article-paragraph">${paragraph.slice(0,70)+"..."}</p>
+                    <p class="article-paragraph">${paragraph.slice(0,60)+"..."}</p>
                     <span class="article-author">${author}</span>
                 </article>
             </a>
