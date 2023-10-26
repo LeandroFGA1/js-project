@@ -27,26 +27,10 @@ const addNews =()=>{
 
 const renderSectionNews = (sections) =>{
     for (const sectionName in sections){
-        const styleCSS = document.createElement("style");
-        let css =`
-        #add-cart-img-${sectionName}{
-            display:none;
-        }
-        #add-cart-img-${sectionName}:checked ~ label >.add-cart-img-${sectionName}{
-            transform: rotate(180deg);
-            background-color: var(--accent-color);
-        }
-        `;
-        styleCSS.innerHTML=css;
-        document.head.appendChild(styleCSS);
         main.innerHTML += `
         <section id="${sectionName}---" class="sections">
             <div class ="header-section">
                 <h2>${sectionName}</h2>
-                <input type="checkbox" name="add-cart-img-${sectionName}" id="add-cart-img-${sectionName}">
-                <label for="add-cart-img-${sectionName}">
-                    <img src="./assets/imgs/boton-agregar.png" class="add-cart-img add-cart-img-${sectionName}" alt="add cart icon">
-                </label>
             </div>
             
             <div class= "news-container" id="${sectionName}"></div>
@@ -69,6 +53,20 @@ const renderSectionNews = (sections) =>{
         
         for (const currentNew in currentSection){
             const {title, author, paragraph} = currentSection[currentNew];
+            const styleCSS = document.createElement("style");
+            const titleFill = title.replace(/\s/g, '').slice(0,5);
+
+            let css =`
+            #add-cart-img-${titleFill}{
+                display:none;
+            }
+            #add-cart-img-${titleFill}:checked ~ label >.add-cart-img-${titleFill}{
+                transform: rotate(180deg);
+                background-color: var(--accent-color);
+            }
+            `;
+            styleCSS.innerHTML=css;
+            document.head.appendChild(styleCSS);
             DOMCurrentsecion.innerHTML += `
             <a class="article-container" href="#">
                 <article class="article">
@@ -76,6 +74,10 @@ const renderSectionNews = (sections) =>{
                     <h3 class="article-header">${title}</h3>
                     <p class="article-paragraph">${paragraph.slice(0,60)+"..."}</p>
                     <span class="article-author">${author}</span>
+                    <input type="checkbox" name="add-cart-img-${titleFill}" id="add-cart-img-${titleFill}">
+                    <label for="add-cart-img-${titleFill}">
+                        <img src="./assets/imgs/boton-agregar.png" class="add-cart-img add-cart-img-${titleFill}" alt="add cart icon">
+                    </label>
                 </article>
             </a>
             
@@ -127,7 +129,7 @@ const listenerThisLi = (li,boolean) => {
             
             cart.innerHTML += `
                 <li class="cart-item" id="${li.name}-">
-                    <h4>${li.name.replace('add-cart-img-', '')}</h4>
+                    <h4>${li.parentNode.querySelector("h3").textContent}</h4>
                     <img src="./assets/imgs/delete-cart.svg" alt="delete" class="cart-delete" id="img-delete-${li.name}">
                 </li>`;
             const imgDelete = document.getElementById(`img-delete-${li.name}`);
