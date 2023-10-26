@@ -70,7 +70,6 @@
 #toggle-menu:checked ~ label >.img-toggle-menu{
     transform: rotate(180deg);
 }
-
 .menu-container{
     position: absolute;
     width: 100vw;
@@ -93,13 +92,10 @@
     text-decoration:underline;
     transition: text-decoration 2s ease;
 }
-
-
 .quit-menu-img{
     width: 70px;
     height: 70px;
 }
-/* dolar-price-container */
 .dolar-price-container {
     width: 220px;
     height: 50px;
@@ -110,19 +106,13 @@
     justify-content: center;
     align-items: center;
 }
-
-
-
 .dolar-price-container:hover{
     height: 60px;
     margin-top: 10px;
 }
-
-
 .price-box{
     padding-top: 5px;
 }
-
 .dolar-price-- {
     display: none;
     animation-duration: 0.5s;
@@ -138,7 +128,6 @@
     animation-duration: 0.5s;
     animation-name: dolarOut;
 }
-
 @keyframes dolarIn {
     from {
         opacity: 0;
@@ -149,7 +138,6 @@
         transform: translateY(0);
     }
 }
-
 @keyframes dolarOut{
     from{
         background-color: var(--accent-color);
@@ -161,7 +149,6 @@
         opacity: 0;
     }
 }
-
 .fav-and-register-container{
     width: 200px;
     display: flex;
@@ -169,7 +156,10 @@
     position: relative;
     
 }
-
+/* ------------------ */
+/* ------------------ */
+/* ------------------ */
+/* ------------------ */
 
 /*  cart */
 .img-menu{
@@ -231,8 +221,6 @@
     animation-duration: 2s;
     animation-name: cartOut;
 }
-
-
 @keyframes cartIn {
     from {
         transform: translateX(100%);
@@ -281,13 +269,16 @@
     display: flex;
     gap: 10px;
 }
+/* ------------------ */
+/* ------------------ */
+/* ------------------ */
+/* ------------------ */
 main{
     margin: 70px 10px 10px 10px;
     height: 100%;
     background-color: var(--main-color);
     border-radius: 20px;
 }
-
 .hero-container{
     width: 100%;
     height: 100vh;
@@ -308,7 +299,7 @@ main{
     left: 0;
     right: 0;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.315); /* Fondo semitransparente para el texto */
+    background-color: rgba(0, 0, 0, 0.315);
     color: white;
     padding: 10px;
     font-size: 18px;
@@ -316,6 +307,24 @@ main{
     align-items: center;
     flex-direction: column;
     justify-content: center;
+}
+/* ------------------ */
+/* ------------------ */
+/* ------------------ */
+
+.sections{
+    height: auto;
+    padding-top: 80px;
+}
+.sections >h2{
+    border-top: var(--secondary-color) solid 20px;
+    border-top-style:ridge;
+    border-width: 5px;
+}
+.header-section{
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
 .article-container{
@@ -332,7 +341,7 @@ main{
     color: var(--accent-color);
 }
 .article-container p{
-    width: 200px;
+    width: 90%;
 }
 
 .article-container:hover{
@@ -352,6 +361,8 @@ main{
     height: 60%;
     background-color: aqua;
     border-radius: 10px;
+    border-style: solid;
+    border-width: 2px;
     transform: none;
     transition: transform 0.3s ease;
 }
@@ -384,21 +395,6 @@ main{
     width: -5px;
 }
 
-#add-cart-img{
-    display: none;
-}
-
-#add-cart-img:checked ~ label >.add-cart-img{
-    transform: rotate(180deg);
-    background-color: var(--accent-color);
-    
-}
-
-.header-section{
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
 
 
 
@@ -408,22 +404,21 @@ main{
 
 
 
-.sections{
-    height: auto;
-    padding-top: 80px;
-}
-.sections >h2{
-    border-top: var(--secondary-color) solid 20px;
-    border-top-style:ridge;
-    border-width: 5px;
-}
+
 .news-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
+    justify-items: center;
     box-sizing: border-box;
 }
+
+
+/* ------------------ */
+/* ------------------ */
+/* ------------------ */
+
 
 .section-heading {
     text-align: center;

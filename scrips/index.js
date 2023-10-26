@@ -54,6 +54,19 @@ const renderSectionNews = (sections) =>{
         const DOMCurrentsecion = document.getElementById(sectionName);
         const currentSection = sections[sectionName];
         renderMenu(sectionName);
+        if (currentSection.length === 2 || currentSection.length ===5 || currentSection.length ===11 ) {
+            // Si la sección tiene solo 2 elementos, agrega un artículo de publicidad
+            DOMCurrentsecion.innerHTML += `
+                <a class="article-container" href="#">
+                    <article class="article">
+                        <img src="./assets/imgs/publi.jpg" alt="" class="article-img">
+                        <h3 class="article-header">Publicidad</h3>
+                        <p class="article-paragraph">Este es un anuncio publicitario.</p>
+                    </article>
+                </a>
+            `;
+        }
+        
         for (const currentNew in currentSection){
             const {title, author, paragraph} = currentSection[currentNew];
             DOMCurrentsecion.innerHTML += `
@@ -94,7 +107,6 @@ const createListerCart = ()=>{
             listenerThisLi(event.target, true);
             
         } else {
-            console.log("caca")
             listenerThisLi(event.target,false);
         }
         });
@@ -232,9 +244,6 @@ const moveLogo = () =>{
     }
 }
 
-const prueba = ()=>{
-    console.log("poto")
-}
 
 const checkerEmail = (e) => {
     e.preventDefault();
@@ -277,7 +286,5 @@ const init = () =>{
     window.addEventListener("scroll",moveLogo);
     CONTACT.addEventListener("submit",checkerEmail);
 }
-
-
 
 init();
