@@ -314,7 +314,7 @@ main{
 
 .sections{
     height: auto;
-    padding-top: 80px;
+    padding-top: 70px;
 }
 .sections >h2{
     border-top: var(--secondary-color) solid 20px;
@@ -533,6 +533,10 @@ footer {
 
 .footer-bottom p {
     margin: 0;
+}
+.footer-img{
+    width: 50px;
+    height: 50px;
 }
 
 /* Estilos para enlaces de redes sociales */
