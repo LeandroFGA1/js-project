@@ -39,7 +39,6 @@ const renderSectionNews = (sections) =>{
         const currentSection = sections[sectionName];
         renderMenu(sectionName);
         if (currentSection.length === 2 || currentSection.length ===5 || currentSection.length ===11 ) {
-            // Si la sección tiene solo 2 elementos, agrega un artículo de publicidad
             DOMCurrentsecion.innerHTML += `
                 <a class="article-container" href="#">
                     <article class="article">
@@ -56,24 +55,26 @@ const renderSectionNews = (sections) =>{
             const styleCSS = document.createElement("style");
             const titleFill = title.replace(/\s/g, '').slice(0,5);
 
-            let css =`
-            #add-cart-img-${titleFill}{
-                display:none;
-            }
-            #add-cart-img-${titleFill}:checked ~ label >.add-cart-img-${titleFill}{
-                transform: rotate(180deg);
-                background-color: var(--accent-color);
-            }
-            `;
-            styleCSS.innerHTML=css;
-            document.head.appendChild(styleCSS);
+            // let css =`
+            // #add-cart-img-${titleFill}{
+            //     display:none;
+            // }
+            // #add-cart-img-${titleFill}:checked ~ label >.add-cart-img-${titleFill}{
+            //     transform: rotate(180deg);
+            //     background-color: var(--accent-color);
+            // }
+            // `;
+            // styleCSS.innerHTML=css;
+            // document.head.appendChild(styleCSS);
             DOMCurrentsecion.innerHTML += `
             <a class="article-container" href="#">
-                <article class="article">
-                    <img src="./assets/imgs/${title}.jpg" alt="" class="article-img">
-                    <h3 class="article-header">${title}</h3>
-                    <p class="article-paragraph">${paragraph.slice(0,60)+"..."}</p>
-                    <span class="article-author">${author}</span>
+                <article>
+                    <div class="article">
+                        <img src="./assets/imgs/${title}.jpg" alt="" class="article-img">
+                        <h3 class="article-header">${title}</h3>
+                        <p class="article-paragraph">${paragraph.slice(0,60)+"..."}</p>
+                        <span class="article-author">${author}</span>
+                    </div>
                     <input type="checkbox" name="add-cart-img-${titleFill}" id="add-cart-img-${titleFill}">
                     <label for="add-cart-img-${titleFill}">
                         <img src="./assets/imgs/boton-agregar.png" class="add-cart-img add-cart-img-${titleFill}" alt="add cart icon">
@@ -89,19 +90,17 @@ const renderSectionNews = (sections) =>{
     createListerCart();
 }
 const createListenerMenu = () => {
-    MENU_ITEMS = document.querySelectorAll(".menu-item--click"); // Obtener todos los elementos
+    MENU_ITEMS = document.querySelectorAll(".menu-item--click"); 
     MENU_ITEMS.forEach((item) => {
-        item.addEventListener("click", quitMenu); // Agregar event listener a cada elemento
+        item.addEventListener("click", quitMenu);
     });
 }
 
 
 
 const createListerCart = ()=>{
-    // Obtén una lista de todos los elementos <input> con name que comienza con "add-cart-img-"
     const checkboxes = document.querySelectorAll('input[name^="add-cart-img-"]');
 
-// Agrega un evento de cambio a cada elemento
     checkboxes.forEach((checkbox) => {
         checkbox.addEventListener("change", (event) => {
         if (event.target.checked) {
@@ -121,10 +120,8 @@ const listenerThisLi = (li,boolean) => {
 
         
         if (existingLi) {
-            // El elemento li ya existe, puedes hacer algo con él si lo deseas
             console.log(`El elemento ${li.name} ya existe en el carrito.`);
         } else {
-            // El elemento li no existe en el carrito, así que lo agregamos
             console.log(`Agregando el elemento ${li.name} al carrito.`);
             
             cart.innerHTML += `
@@ -163,11 +160,10 @@ const isCartEmpty=()=> {
     const cartItems = cart.querySelectorAll('li.cart-item');
     const imgCart = document.querySelector(".img-menu");
     
-    // Si no hay ningún elemento li en cart, el carrito está vacío
     if (cartItems.length === 0) {
-        imgCart.style.backgroundColor = "transparent"; // Fondo transparente si está vacío
+        imgCart.style.backgroundColor = "transparent";
     } else {
-        imgCart.style.backgroundColor = "var(--accent-color)"; // Fondo rojo si no está vacío
+        imgCart.style.backgroundColor = "var(--accent-color)";
     }
 };
 
@@ -218,13 +214,28 @@ const getAPIDolar = async() =>{
 }
 const renderDolars = (dolars) =>{
     const container = document.querySelector(".dolar-price-container");
-    container.innerHTML = dolars.slice(0,4).map((parte,contador) => `
-    <div class="price-box ${contador === 0 ? '' : 'dolar-price--'} ${contador === 3 ? 'box-laster' : ''}">
-        <h2>${parte.nombre}</h2>
-        <span>Compra: ${parte.compra}</span>
-        <span>Venta: ${parte.venta}</span>
-    </div>
-    `).join("");
+    container.innerHTML +=`
+        <div class="price-box first-box">
+            <h2>${dolars[0].nombre}</h2>
+            <span>Compra: ${dolars[0].compra}</span>
+            <span>Venta: ${dolars[0].venta}</span>
+        </div>
+    `
+    container.innerHTML +=`
+        <div class="toggle-boxs">
+            ${
+                dolars.slice(1,4).map((parte) => `
+                    <div class="price-box">
+                        <h2>${parte.nombre}</h2>
+                        <span>Compra: ${parte.compra}</span>
+                        <span>Venta: ${parte.venta}</span>
+                    </div>
+                    `).join("")
+            }
+        </div>
+    
+    
+    ` 
 }
 
 const quitMenu =() =>{

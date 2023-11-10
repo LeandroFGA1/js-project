@@ -96,59 +96,43 @@
     width: 70px;
     height: 70px;
 }
-.dolar-price-container {
-    width: 220px;
+
+
+.dolar-price-container{
+    position: relative;
+    width: 200px;
     height: 50px;
     background-color: var(--accent-color);
-    text-align: center;
-    border-radius: 10px;
     cursor: pointer;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    border-radius: 5px;
 }
-.dolar-price-container:hover{
-    height: 60px;
-    margin-top: 10px;
-}
-.price-box{
-    padding-top: 5px;
-}
-.dolar-price-- {
+
+.toggle-boxs{
     display: none;
-    animation-duration: 0.5s;
-    animation-name: dolarIn;
-    position: relative;
-    z-index: 1;
-}
-.dolar-price-container:hover > .dolar-price-- {
-    display: block;
     background-color: var(--accent-color);
 }
-.dolar-price-container:not(:hover)>.dolar-price--{
-    animation-duration: 0.5s;
-    animation-name: dolarOut;
+
+.dolar-price-container:hover >.toggle-boxs{
+    opacity: 1;
+    animation: fadeIn 0.5s ease;
+    display: block;
 }
-@keyframes dolarIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-@keyframes dolarOut{
-    from{
-        background-color: var(--accent-color);
-        display: block;
-        opacity: 1;
-        
-    }
-    to{
+
+@keyframes fadeIn {
+    0% {
         opacity: 0;
     }
+    100% {
+        opacity: 1;
+    }
 }
+
+
+
+
+
+
 .fav-and-register-container{
     width: 200px;
     display: flex;
@@ -327,7 +311,7 @@ main{
     align-items: center;
 }
 
-.article-container{
+/* .article-container{
     width: 300px;
     height: 380px;
     display: flex;
@@ -393,25 +377,102 @@ main{
     border-radius: 20px;
     width: -5px;
     position:sticky;
-}
-
-
-
-
-
-
-
-
-
-
+} */
 
 .news-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(40vw, 1fr));
     gap: 20px;
     padding: 20px;
     justify-items: center;
     box-sizing: border-box;
+}
+
+
+.article-container{
+    width: 40vw;
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+article{
+    position: relative;
+}
+
+.article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.article-img{
+    width: 100%;
+    height: 250px;
+    border:2px solid transparent ;
+    border-radius: 10px;
+    transform: none;
+    transition: transform 0.3s ease;
+}
+.article-img:hover{
+    transform: scale(105%);
+    transition: transform 0.3s ease;
+}
+.article-header{
+    height: 100%;
+    height: 80px;
+    font-size: 30px;
+    text-align: center;
+    color: var(--accent-color);
+}
+.article-paragraph{
+    width: 90%;
+    height: 45px;
+    font-size: 18px;
+    text-align: center;
+}
+.article-author{
+    color: var(--secondary-color);
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+article > input{
+    display: none;
+}
+.add-cart-img{
+    width: 50px;
+}
+article > label{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    position: absolute;
+    top:1%;
+    left: 1%;
+    filter: drop-shadow(0 0 2px white);
+    transition: all 0.5s;
+    transform: rotate(0deg);
+    border-radius: 50%;
+}
+article:hover > label{
+    opacity: 1;
+}
+article label:hover{
+    background-color: greenyellow;
+}
+article input:checked ~ label{
+    transform: rotate(135deg);
+    background-color: crimson;
+    /* filter:
+        drop-shadow(1px 0px 0px white)
+        drop-shadow(0px 1px 0px white)
+        drop-shadow(-1px 0px 0px white)
+        drop-shadow(0 -1px 0px white); */
 }
 
 
@@ -443,7 +504,7 @@ main{
     color: #666;
 }
 
-/* Estilos para el formulario de suscripción */
+
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -539,20 +600,17 @@ footer {
     height: 50px;
 }
 
-/* Estilos para enlaces de redes sociales */
 .footer-social ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 20px;
 }
 
-/* Estilos adicionales para la sección de Subscribe */
 #subscribe {
     background-color: #f5f5f5;
 }
 
 
-/* Para pantallas más pequeñas, muestra la imagen pequeña */
 @media (max-width: 950px) {
     #logo {
         margin-top: 12px;
@@ -560,7 +618,6 @@ footer {
     }
 }
 
-/* Para pantallas más grandes, muestra la imagen grande */
 @media (max-width: 769px) {
     #logo {
         width: 200px;
