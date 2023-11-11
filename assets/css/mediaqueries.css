@@ -1,0 +1,54 @@
+@media (max-width: 950px) {
+    #logo {
+        margin-top: 20px;
+        content: url('./imgs-mediaqueries/Logo-short.png');
+        height: 100px;
+    }
+}
+
+@media (max-width: 769px) {
+    #logo {
+        width: 200px;
+    }
+    .news-container{
+        padding: 0;
+    }
+    .header-section{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .article-container{
+        width: 300px;
+
+    }
+}
+@media (max-width: 690px) {
+    #logo {
+        display: none;
+    }
+    .dolar-price-container{
+        width: 170px;
+        overflow: hidden;
+    }
+    .dolar-price-container:hover{
+        overflow:visible;
+        height: 100px;
+        margin-top: 50px;
+    }
+    .toggle-menu-container{
+        margin-right: 20vw;
+    }
+}
+
+@media (max-width:550px){
+    .toggle-menu-container{
+        margin-right: 10vw;
+    }
+}
+
+@media (max-width:400px){
+    .toggle-menu-container{
+        margin: 0;
+    }
+}
