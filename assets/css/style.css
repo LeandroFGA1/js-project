@@ -382,7 +382,7 @@ main{
 
 .news-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     gap: 20px;
     padding: 20px;
     justify-items: center;
@@ -391,7 +391,7 @@ main{
 
 
 .article-container{
-    width: 40vw;
+    width: 500px;
     height: 400px;
     overflow: hidden;
     display: flex;
