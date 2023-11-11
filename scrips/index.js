@@ -67,7 +67,7 @@ const renderSectionNews = (sections) =>{
             // styleCSS.innerHTML=css;
             // document.head.appendChild(styleCSS);
             DOMCurrentsecion.innerHTML += `
-            <a class="article-container" href="#">
+            <a class="article-container" id="${titleFill}-" href="#">
                 <article>
                     <div class="article">
                         <img src="./assets/imgs/${title}.jpg" alt="" class="article-img">

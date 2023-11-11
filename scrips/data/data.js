@@ -103,7 +103,7 @@ const data =[
         type: "Politics"
     },
     {
-        title: "First Human on the Moon",
+        title: "The First Human on the Moon",
         author: "Neil Armstrong",
         paragraph: "On July 20, 1969, I became the first human to set foot on the Moon during NASA's Apollo 11 mission. I said the famous words, 'That's one small step for [a] man, one giant leap for mankind.'",
         type: "Space"
@@ -151,13 +151,13 @@ const data =[
         type: "Politics"
     },
     {
-        title: "Fall of the Soviet Union",
+        title: "The Fall of the Soviet Union",
         author: "Ivan Petrov",
         paragraph: "In 1991, the Soviet Union dissolved, marking the end of the Cold War and the emergence of independent nations in Eastern Europe and Asia.",
         type: "Politics"
     },
     {
-        title: "First Modern Olympics Held in Athens",
+        title: "Modern Olympics Held in Athens",
         author: "John Smith",
         paragraph: "In 1896, Athens hosted the first modern Olympic Games, marking the revival of the ancient tradition of athletic competitions.",
         type: "Sports"
@@ -187,7 +187,7 @@ const data =[
         type: "Sports"
     },
     {
-        title: "First Wimbledon Tennis Championship",
+        title: "Wimbledon Tennis Championship",
         author: "Rajesh Patel",
         paragraph: "The inaugural Wimbledon Championship took place in 1877, marking the beginning of one of the most prestigious tennis tournaments in the world.",
         type: "Sports"
